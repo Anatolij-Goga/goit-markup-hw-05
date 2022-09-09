@@ -23,8 +23,8 @@
   --white-bg-color-transparency: rgba(255, 255, 255, 0.1);
 
   /* Others */
-  --transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   --transition-duration: 250ms;
+  --transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 body {
@@ -156,7 +156,7 @@ img {
   border-radius: 2px;
 
   opacity: 0;
-  transform: scalex(0);
+  transform: scaleX(0);
   transform-origin: center left;
   transition: opacity var(--transition-duration) var(--transition-timing-function),
     transform var(--transition-duration) var(--transition-timing-function);
@@ -164,14 +164,14 @@ img {
 
 .site-nav .current::after {
   opacity: 1;
-  transform: scalex(1);
+  transform: scaleX(1);
 }
 
 .site-nav .link:hover::after,
 .site-nav .link:focus::after,
 .site-nav .link:active::after {
   opacity: 1;
-  transform: scalex(1);
+  transform: scaleX(1);
 }
 
 /* Contacts*/
@@ -715,11 +715,23 @@ address {
     0px 2px 2px rgba(0, 0, 0, 0.12);
 }
 
+.projects .list {
+  overflow: hidden;
+}
+
 .projects .link {
   display: block;
   width: 100%;
   border: 1px solid var(--border-color-item);
   transition: box-shadow var(--transition-duration) var(--transition-timing-function);
+}
+
+.projects-thumb {
+  position: relative;
+  overflow: hidden;
+
+  width: 100%;
+  height: 100%;
 }
 
 .projects .img {
@@ -729,11 +741,52 @@ address {
   object-fit: cover;
 }
 
+.projects-thumb-hover {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding-left: 24px;
+  padding-right: 24px;
+  background-color: rgba(33, 150, 243, 0.9);
+
+  overflow: hidden;
+
+  opacity: 0;
+  pointer-events: none;
+
+  transition: top var(--transition-duration) var(--transition-timing-function),
+    opacity var(--transition-duration) var(--transition-timing-function),
+    box-shadow var(--transition-duration) var(--transition-timing-function);
+}
+
+.projects .projects-thumb-hover .text {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  text-align: start;
+  line-height: calc(28 / 18);
+  letter-spacing: 0.03em;
+  color: var(--light-white-color);
+}
+
 .projects .link:hover,
 .projects .link:focus,
 .projects .link:active {
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
     1px 4px 6px rgba(0, 0, 0, 0.16);
+}
+
+.projects .list:hover .projects-thumb-hover,
+.projects .link:focus .projects-thumb-hover,
+.projects .link:active .projects-thumb-hover {
+  opacity: 1;
+  top: 0;
 }
 
 .portfolio-container .projects {
