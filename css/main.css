@@ -751,7 +751,6 @@ address {
 .projects .link {
   display: block;
   width: 100%;
-  border: 1px solid #eeeeee;
   transition: box-shadow var(--transition-duration) var(--transition-timing-function);
 }
 
@@ -823,6 +822,12 @@ address {
   padding-bottom: 20px;
   padding-left: 24px;
   text-align: left;
+}
+
+.portfolio-container .projects-container {
+  border-right: 1px solid #eeeeee;
+  border-bottom: 1px solid #eeeeee;
+  border-left: 1px solid #eeeeee;
 }
 
 .projects .title {
